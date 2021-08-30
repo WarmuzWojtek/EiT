@@ -1,0 +1,9 @@
+.title {
+  font-size: 190px;
+  margin: 0;
+  margin-top: 0.2em;
+  margin-bottom: 0.1em;
+  color: var(--secondary);
+  text-transform: uppercase;
+  text-align: left;
+}

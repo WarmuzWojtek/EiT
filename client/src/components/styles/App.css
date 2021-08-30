@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 :root {
-  --primary: rgba(0, 0, 0, 1);
-  --secondary: rgba(255, 255, 255, 1);
+  --primary: rgba(43, 69, 112, 1);
+  --secondary: rgba(235, 235, 235, 1);
+  --red: rgba(255, 0, 0, 1);
 
   --maingradient: linear-gradient(40deg, #aaaaaa, #f2f2f2, #aaaaaa);
 
-  --mainFont: 'Ubuntu', sans-serif;
+  --mainFont: 'Montserrat', sans-serif;
 
   --spacing-xxs: 0.5em;
   --spacing-xs: 1em;
@@ -21,4 +27,5 @@
 
 * {
   box-sizing: border-box;
+  font-family: var(--mainFont);
 }
