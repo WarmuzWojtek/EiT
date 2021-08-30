@@ -1,0 +1,16 @@
+.startBtn {
+  transform: scale(1);
+  font-size: 26px;
+  font-family: var(--mainFont);
+  text-align: center;
+  color: var(--primary);
+  background: var(--maingradient);
+  cursor: pointer;
+  width: 20%;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: 1px solid var(--primary);
+  padding-top: var(--spacing-xxs);
+  padding-bottom: var(--spacing-xxs);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+}
