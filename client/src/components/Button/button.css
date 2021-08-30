@@ -1,16 +1,25 @@
 .startBtn {
   transform: scale(1);
-  font-size: 26px;
+  font-size: 30px;
   font-family: var(--mainFont);
   text-align: center;
-  color: var(--primary);
-  background: var(--maingradient);
+  color: var(--secondary);
+  background: transparent;
   cursor: pointer;
   width: 20%;
   border-radius: 8px;
   transition: 0.3s;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--secondary);
   padding-top: var(--spacing-xxs);
   padding-bottom: var(--spacing-xxs);
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  margin: 0;
+  margin-top: var(--spacing-md);
+  margin-left: var(--spacing-xxs);
+}
+
+.startBtn:hover {
+  color: var(--primary);
+  background: var(--secondary);
+  transform: scale(1.1);
 }
