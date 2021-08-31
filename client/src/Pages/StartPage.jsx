@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import Button from '../components/Button/Button'
 import Title from '../components/Title/Title'
 import Subtitle from '../components/Subtitle/Subtitle'
+import ButtonsKit from '../components/ButtonsKit/ButtonsKit'
 import StartBcg from '../components/StartBackground/StartBcgDesktop'
 import '../components/StartBackground/startBcgDesktop.css';
 
@@ -73,6 +74,9 @@ const StartPage = ({ children }) => {
 
   }, [])
 
+  function handleStartClick() {
+    setIsClicked(!isClicked);
+  }
 
   return (
     <StartBcg>
@@ -80,12 +84,19 @@ const StartPage = ({ children }) => {
       <Subtitle id={subtitle1Ref} content="Master your IT vocabulary..." className='subtitle' />
       <Subtitle id={subtitle2Ref} content="Take up the challenge..." className='subtitle' />
       <Subtitle id={subtitle3Ref} content="Have fun!" className='subtitle' />
-      <Button
+      {/* <Button
         id={startBtnRef}
-        // onClick={handleStartClick}
+        onClick={handleStartClick}
         className='startBtn'
         content='Click !'
-      />
+      /> */}
+      {isClicked ? <ButtonsKit /> :
+        <Button
+          id={startBtnRef}
+          onClick={handleStartClick}
+          className='startBtn'
+          content='NOW!' />
+      }
       <Subtitle id={itRef} content="it" className='it' />
     </StartBcg>
   );
