@@ -23,3 +23,20 @@
   background: var(--secondary);
   transform: scale(1.1);
 }
+
+.learnBtn {
+  width: 100%;
+  color: var(--primary);
+  background: transparent;
+  border: 3px solid var(--primary);
+  border-radius: 18px;
+  font-size: 24px;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-xxs);
+  transition: 0.3s;
+}
+
+.learnBtn:hover {
+  color: var(--secondary);
+  background: var(--primary);
+}

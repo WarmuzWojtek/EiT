@@ -1,0 +1,16 @@
+.plgBcg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--secondary);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.playContainer {
+  width: 100%;
+  height: 100vh;
+  padding: var(--spacing-sm);
+  margin: 0;
+}

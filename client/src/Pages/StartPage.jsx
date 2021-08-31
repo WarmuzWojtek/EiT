@@ -7,7 +7,11 @@ import ButtonsKit from '../components/ButtonsKit/ButtonsKit'
 import StartBcg from '../components/StartBackground/StartBcgDesktop'
 import '../components/StartBackground/startBcgDesktop.css';
 
-const StartPage = ({ children }) => {
+import { Transition } from "react-transition-group";
+import { TweenMax } from "gsap/all";
+const startState = { autoAlpha: 0, y: -50 };
+
+const StartPage = (props) => {
 
   const titleRef = useRef(null);
   const subtitle1Ref = useRef(null);
@@ -79,26 +83,40 @@ const StartPage = ({ children }) => {
   }
 
   return (
-    <StartBcg>
-      <Title id={titleRef} />
-      <Subtitle id={subtitle1Ref} content="Master your IT vocabulary..." className='subtitle' />
-      <Subtitle id={subtitle2Ref} content="Take up the challenge..." className='subtitle' />
-      <Subtitle id={subtitle3Ref} content="Have fun!" className='subtitle' />
-      {/* <Button
+    <Transition
+      unmountOnExit
+      in={props.show}
+      timeout={1000}
+      onEnter={node => TweenMax.set(node, startState)}
+      addEndListener={(node, done) => {
+        TweenMax.to(node, 0.5, {
+          autoAlpha: props.show ? 1 : 0,
+          y: props.show ? 0 : 50,
+          onComplete: done
+        });
+      }}
+    >
+      <StartBcg>
+        <Title id={titleRef} />
+        <Subtitle id={subtitle1Ref} content="Master your IT vocabulary..." className='subtitle' />
+        <Subtitle id={subtitle2Ref} content="Take up the challenge..." className='subtitle' />
+        <Subtitle id={subtitle3Ref} content="Have fun!" className='subtitle' />
+        {/* <Button
         id={startBtnRef}
         onClick={handleStartClick}
         className='startBtn'
         content='Click !'
       /> */}
-      {isClicked ? <ButtonsKit /> :
-        <Button
-          id={startBtnRef}
-          onClick={handleStartClick}
-          className='startBtn'
-          content='NOW!' />
-      }
-      <Subtitle id={itRef} content="it" className='it' />
-    </StartBcg>
+        {isClicked ? <ButtonsKit /> :
+          <Button
+            id={startBtnRef}
+            onClick={handleStartClick}
+            className='startBtn'
+            content='NOW!' />
+        }
+        <Subtitle id={itRef} content="it" className='it' />
+      </StartBcg>
+    </Transition>
   );
 }
 
