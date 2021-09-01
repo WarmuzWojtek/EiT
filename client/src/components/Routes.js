@@ -1,9 +1,6 @@
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import StartPage from '../Pages/StartPage.jsx'
-// components
-// import StartPage from '../src/Pages/StartPage.jsx'
-// import DemoPlay from '../src/Pages/DemoPlay.jsx'
-
+import DemoPlay from '../Pages/DemoPlay.jsx'
 const Routes =()=>{
 
 
@@ -16,9 +13,9 @@ const Routes =()=>{
 							{ ({ match }) => <StartPage show={match !== null} /> }
 						</Route>
 						
-						{/* <Route path="/demo">
+						<Route path="/demo">
 							{ ({ match }) => <DemoPlay show={match !== null} /> }
-						</Route> */}
+						</Route>
 					
 			
 			</BrowserRouter>

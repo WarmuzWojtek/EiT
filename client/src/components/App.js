@@ -1,5 +1,5 @@
 import React from 'react';
-
+import DemoPlay from '../Pages/DemoPlay.jsx';
 import './styles/App.css';
 import Button from '../components/Button/Button.jsx'
 import StartBcg from '../components/StartBackground/StartBcgDesktop.jsx'
@@ -11,8 +11,10 @@ function App() {
     <div className="App">
       <Routes/>
       {/* <StartBcg>
-
+   
      </StartBcg> */}
+     {/* <DemoPlay/> */}
+     {/* <StartPage/> */}
     </div>
   );
 }

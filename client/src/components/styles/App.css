@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 .App {
   text-align: center;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background: var(--secondary);
 }
 
 :root {
   --primary: rgba(43, 69, 112, 1);
   --secondary: rgba(235, 235, 235, 1);
   --red: rgba(255, 0, 0, 1);
+  --green: rgb(5, 187, 5);
+  --primary-shadow: rgba(43, 69, 112, 0.25);
 
   --maingradient: linear-gradient(40deg, #aaaaaa, #f2f2f2, #aaaaaa);
 
   --mainFont: 'Montserrat', sans-serif;
+  --inputFont: 'Architects Daughter', cursive;
 
   --spacing-xxs: 0.5em;
   --spacing-xs: 1em;
@@ -28,4 +33,36 @@
 * {
   box-sizing: border-box;
   font-family: var(--mainFont);
+}
+
+.input {
+  border: none;
+  width: 100%;
+  padding: var(--spacing-xxs);
+  font-family: var(--inputFont);
+  color: var(--primary);
+  font-size: 28px;
+  background-color: transparent;
+  text-align: center;
+  outline: none;
+}
+
+.input:focus {
+  border: none;
+  outline: none;
+}
+
+.modalContainer {
+  background-image: var(--secondary);
+  border: 1px solid var(--primary);
+  margin: 10px auto;
+  min-width: 50vw;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 8px;
+}
+
+.modalWord {
+  width: 20%;
+  text-align: center;
 }

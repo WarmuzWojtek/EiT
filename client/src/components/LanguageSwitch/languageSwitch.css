@@ -1,0 +1,26 @@
+.switchContainer {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  align-items: center;
+  color: var(--primary);
+  /* margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm); */
+  cursor: pointer;
+  filter: drop-shadow(0px 20px 10px #000000);
+}
+
+.switchContainer:hover .arrow {
+  transform: rotate(180deg);
+
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  transform: rotate(0deg);
+  transition: 0.5s;
+}
