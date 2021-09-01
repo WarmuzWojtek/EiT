@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import { Modal } from 'react-responsive-modal';
 import PlayBackground from '../components/PlayBackground/PlayBackground'
 import AppBar from '../components/AppBar/AppBar'
 import GameplayContainer from '../components/GameplayContainer/GameplayContainer'
@@ -36,13 +37,28 @@ const DemoPlay = (props) => {
   const rightAnswersRef = useRef(null);
   const wrongAnswersRef = useRef(null);
   const commentRef = useRef(null);
+  const startBtnRef = useRef(null);
+  const learnBtnRef = useRef(null);
+  const questionRef = useRef(null);
 
-  function handleLearnClick() {
+  useEffect(() => {
 
-  }
-  function handleStartTestClick() {
+    gsap.fromTo(questionRef.current, {
+      transform: 'scale(0)',
+    }, {
+      transform: 'scale(1.3)',
+      // repeat: 0,
+      duration: 1,
+      // yoyo: "true",
+      // delay: 0,
+      ease: 'bounce',
+    });
 
-  }
+
+
+  }, [currentQ]);
+
+
   useEffect(() => {
 
     gsap.fromTo(commentRef.current, {
@@ -150,7 +166,7 @@ const DemoPlay = (props) => {
     setIsEnglishFirst(!isEnglishFirst);
   }
 
-  function handleLearntBtn() {
+  function handleLearnBtn() {
     setOpen(true)
   }
 
@@ -178,13 +194,13 @@ const DemoPlay = (props) => {
           <GameplayContainer>
             <CounterContainer>
               <Subtitle content="Good answers : " className='answers' />
-              <Subtitle content={rightAnswers} className='answers' />
+              <Subtitle id={rightAnswersRef} content={rightAnswers} className='answers' />
               <Subtitle content="Wrong answers : " className='answers' />
-              <Subtitle content={wrongAnswers} className='answers' />
+              <Subtitle id={wrongAnswersRef} content={wrongAnswers} className='answers' />
             </CounterContainer>
-            <Subtitle content="Gamemode : demoplay" className='rules' />
+            <Subtitle content="Gamemode : demoplay" className='gamemode' />
             <Subtitle content="Enter a translated word" className='rules' />
-            <Subtitle className='task'>{currentQ}</Subtitle>
+            <Subtitle id={questionRef} className='task' content={currentQ} />
             <form onSubmit={handleAnswerSubmit}>
               <input
                 className='input'
@@ -194,27 +210,36 @@ const DemoPlay = (props) => {
                 value={answer}
               />
             </form>
-            <Subtitle ref={commentRef} className='task'>{comment}</Subtitle>
+            <Subtitle id={commentRef} className='comment' content={comment} />
           </GameplayContainer>
           <ActionsContainer>
             <Button
-              // id={startBtnRef}
-              onClick={handleLearnClick}
+              id={learnBtnRef}
+              onClick={handleLearnBtn}
               className='learnBtn'
               content='Learn' />
+            {/* <Modal style={{ background: 'black' }} open={open} onClose={() => setOpen(false)}>
+              <h2 style={{ textAlign: 'center' }}>Demoplay Module</h2>
+              {words.map(word => (
+                <div key={word.a} className='modalContainer'>
+                  <p className='modalWord' style={{ color: 'blue' }}>{word.q}</p>
+                  <p className='modalWord'>:</p>
+                  <p className='modalWord'>{word.a}</p>
+                </div>
+              ))}
+            </Modal> */}
             <Button
-              // id={startBtnRef}
+              id={startBtnRef}
               onClick={handleStartBtn}
               className='learnBtn'
               content='Start test' />
             <RulesContainer>
               <Subtitle content="Rules" className='rules' />
               <Subtitle content='Here are some words to translate. Choose from which language you want to translate, and hit "start" button. Enter a translated word into "your answer" field and hit enter. At the end you will see your score.' className='rulesDescription' />
-              <LanguageSwitch />
+              <LanguageSwitch isEnglishFirst={isEnglishFirst} onClickFn={handleLanguageSwitch} />
             </RulesContainer>
           </ActionsContainer>
         </PlaygroundContainer>
-        {/* <Playground /> */}
       </PlayBackground>
     </Transition>
   );

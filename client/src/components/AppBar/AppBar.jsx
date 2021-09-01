@@ -16,8 +16,8 @@ const AppBar = () => {
 
   return (
     <div className='appBar'>
-      <div className='logoContainer'>
-        <img className='logo' alt='EiT logo, skrót nazwy aplikacji' scr={logoEit} />
+      <div className='logoContainer' style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/logo.png'})` }}>
+        {/* <img className='logo' alt='EiT logo, skrót nazwy aplikacji' scr={`${process.env.PUBLIC_URL + '/logo.png'}`} /> */}
       </div>
       <Button
         id={redLoginBtnRef}
