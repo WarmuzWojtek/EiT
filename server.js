@@ -23,15 +23,15 @@ app.use('/api/v1', require('./routes/api/crud'));
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static( 'client/build' ));
 
-    // app.get('*', (req, res) => {
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    });
+    // app.get('/', (req, res) => {
     //     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     // });
-    app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-    });
-    app.get('/demo', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-    });
+    // app.get('/demo', (req, res) => {
+    //     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    // });
 
 }
 
