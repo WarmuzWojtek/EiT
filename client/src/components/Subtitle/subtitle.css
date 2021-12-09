@@ -18,15 +18,14 @@
 }
 
 .rules {
-  font-size: 24px;
+  font-size: 28px;
   color: var(--primary);
   margin: 0;
-
 }
 
 .rulesDescription {
   color: var(--primary);
-  font-size: 16px;
+  font-size: 20px;
   text-align: justify;
   margin: 0;
 }

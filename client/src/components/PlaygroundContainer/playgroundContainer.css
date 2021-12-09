@@ -1,14 +1,14 @@
 .playgroundContainer {
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
-  margin: 0 0 0 auto;
+  justify-content: space-between;
+  margin: 0 auto;
   margin-top: 10vh;
   height: 90vh;
   width: 100%;
   max-width: 1200px;
   background: transparent;
-  padding: var(--spacing-xs);
-  padding-right: var(--spacing-xxs);
-
+  padding: var(--spacing-xs) var(--spacing-xl);
+  /* padding-right: var(--spacing-xxs); */
+  max-width: 1400px;
 }

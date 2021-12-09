@@ -8,16 +8,24 @@
   border-bottom: 3px solid var(--primary);
   backdrop-filter: blur(20px);
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
   align-items: center;
-  padding-left: var(--spacing-md);
-  padding-right: 8em;
+  /* padding-left: var(--spacing-md);
+  padding-right: 8em; */
   box-shadow: 5px 0 10px 10px var(--primary-shadow);
 }
 
-.logoContainer {
+.appBarContainer {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  margin-left: var(--spacing-xxl);
+.logoContainer {
+  /* margin-left: var(--spacing-xxl); */
   flex-grow: 1;
   height: 5vh;
   background-repeat: no-repeat;
@@ -43,7 +51,6 @@
   padding: var(--spacing-xxs);
   margin-left: var(--spacing-sm);
   transition: 0.5s;
-
 }
 
 .redBtn:hover {
