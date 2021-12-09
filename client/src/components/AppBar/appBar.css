@@ -60,3 +60,16 @@
   filter: none;
   filter: drop-shadow(0px 20px 10px #000000);
 }
+
+.redBtn-auto {
+  width: auto;
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  font-size: 18px;
+  font-family: var(--mainFont);
+  color: var(--secondary);
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  margin-left: var(--spacing-sm);
+  transition: 0.5s;
+  background: var(--red);
+}
