@@ -1,20 +1,18 @@
-import React from 'react';
-import DemoPlay from '../Pages/DemoPlay.jsx';
-import './styles/App.css';
-import Button from '../components/Button/Button.jsx'
-import StartBcg from '../components/StartBackground/StartBcgDesktop.jsx'
-import StartPage from '../Pages/StartPage.jsx'
-import Routes from './Routes'
+import React from "react";
+
+import "./styles/App.css";
+
+import Routes from "./Routes";
 
 function App() {
   return (
     <div className="App">
-      <Routes/>
+      <Routes />
       {/* <StartBcg>
    
      </StartBcg> */}
-     {/* <DemoPlay/> */}
-     {/* <StartPage/> */}
+      {/* <DemoPlay/> */}
+      {/* <StartPage/> */}
     </div>
   );
 }

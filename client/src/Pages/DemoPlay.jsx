@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 // import { Modal } from "react-responsive-modal";
 import PlayBackground from "../components/PlayBackground/PlayBackground";
@@ -27,8 +27,7 @@ const DemoPlay = (props) => {
   const [comment, setComment] = useState("");
   const [currentIndex, setCurrentIndex] = useState();
   const [isEnglishFirst, setIsEnglishFirst] = useState(true);
-  const [open, setOpen] = useState(false);
-  const [isGameStarted, setIsGameStarted] = useState(false);
+  // const [isGameStarted, setIsGameStarted] = useState(false);
   const [rightAnswers, setRightAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
 
@@ -40,6 +39,17 @@ const DemoPlay = (props) => {
   const startBtnRef = useRef(null);
   const learnBtnRef = useRef(null);
   const questionRef = useRef(null);
+
+  const endGame = useCallback(() => {
+    setAnswer("");
+    alert(
+      `Twój wynik to ${(
+        (rightAnswers / (rightAnswers + wrongAnswers)) *
+        100
+      ).toFixed(0)} %`
+    );
+    window.location = "/";
+  }, [rightAnswers, wrongAnswers]);
 
   useEffect(() => {
     gsap.fromTo(
@@ -81,7 +91,7 @@ const DemoPlay = (props) => {
     if (questions.length < 1) {
       endGame();
     }
-  }, [rightAnswers, wrongAnswers]);
+  }, [rightAnswers, wrongAnswers, endGame, questions.length]);
 
   useEffect(() => {
     gsap.fromTo(
@@ -121,7 +131,7 @@ const DemoPlay = (props) => {
   function handleStartBtn() {
     const index = Math.floor(Math.random() * questions.length);
     const currentQuestion = questions[index];
-    setIsGameStarted(true);
+    // setIsGameStarted(true);
     setCurrentIndex(index);
     setCurrentQ(isEnglishFirst ? currentQuestion.q : currentQuestion.a);
   }
@@ -148,17 +158,6 @@ const DemoPlay = (props) => {
       : handleWrongAnswer();
   }
 
-  function endGame() {
-    setAnswer("");
-    alert(
-      `Twój wynik to ${(
-        (rightAnswers / (rightAnswers + wrongAnswers)) *
-        100
-      ).toFixed(0)} %`
-    );
-    window.location = "/";
-  }
-
   function handleNextQuestion() {
     const first = questions.slice(0, currentIndex);
     const second = questions.slice(currentIndex + 1, questions.length);
@@ -179,6 +178,7 @@ const DemoPlay = (props) => {
 
   function handleLearnBtn() {
     modalRef.current.style.transform = "translateY(0)";
+    modalRef.current.style.opacity = 1;
   }
 
   function handleCloseModal() {
